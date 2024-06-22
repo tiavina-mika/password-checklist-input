@@ -3,15 +3,14 @@
   "version": "0.0.0",
   "description": "A React password input with list of password validation steps or conditions that should be fulfilled",
   "keywords": [
-    "mui",
     "password",
     "check-password-complexity",
     "password-strength",
-    "material-ui",
     "password-input",
     "password-strength-bar",
-    "mui-password",
-    "react"
+    "react",
+    "password-checklist-input",
+    "password-zod"
   ],
   "homepage": "https://github.com/tiavina-mika/password-checklist-input",
   "bugs": {
