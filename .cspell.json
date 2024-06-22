@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "octocat",
+    "string",
+    "ReactNode",
+    "TextFieldProps",
+    "Devrait",
+    "contenir",
+    "moins",
+    "caractères",
+    "lettre",
+    "chiffre",
+    "caractère",
+    "spécial",
+    "automerge"
+  ],
+  "flagWords": [],
+  "ignorePaths": [
+    "package.json",
+    "package-lock.json",
+    "yarn.lock",
+    "tsconfig.json",
+    "node_modules/**"
+  ]
+}
