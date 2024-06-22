@@ -70,15 +70,10 @@
     "test:coverage": "jest --coverage"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.11.3",
-    "@mui/material": "^5.15.2",
     "react": "^16.8.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.8.0 || ^17.0.2 || ^18.2.0"
   },
   "devDependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.5",
-    "@mui/material": "^5.15.2",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
