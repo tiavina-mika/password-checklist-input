@@ -11,15 +11,15 @@ const App = () => {
   return (
     <div className="flex flex-col items-center mt-2">
       <div className="max-w-[400px] pb-2">
-        <div className="flex flex-col gap-2 mb-16 mt-2">
-          <h5 className="text-md font-bold">password-checklist-input</h5>
+        <div className="flex flex-col gap-2 mb-8 mt-2">
+          <h3 className="text-2xl font-bold">password-checklist-input</h3>
           <span>Click on the input field and type a password to see the chack list</span>
         </div>
         <PasswordChecklist
           value={password}
           onChange={handlePasswordChange}
           // override class name
-          className='input'
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           // override error messages
           validationMessages={{
             minLength: 'Devrait contenir au moins 6 caractères',
