@@ -1,0 +1,70 @@
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px 0 10px 10px;
+  /* margin: 10px 0; */
+  border-radius: 5px;
+}
+
+.icon-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 38px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.visibility-icon-button svg {
+  width: 24px;
+  height: auto;
+
+  /* transform: translateY(50%); */
+}
+
+.strength-container {
+  margin-top: 12px;
+}
+
+.strength-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.bars-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 1;
+}
+
+.bar {
+  flex: 1;
+  height: 5px;
+  border-radius: 5px;
+}
+
+.label-container {
+  min-width: 10%;
+}
+.strength-label {
+  font-size: 14px;
+  font-weight: 500;
+}
