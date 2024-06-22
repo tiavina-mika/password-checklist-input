@@ -16,14 +16,13 @@ A React password input with list of password validation steps or conditions that
 ## Installation
 
 ```shell
-
 npm install password-checklist-input
 
 ```
 or
 ```shell
-
 yarn add password-checklist-input
+```
 
 ## Get started
 
