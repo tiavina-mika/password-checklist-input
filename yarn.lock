@@ -6477,9 +6477,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mui-password-checklist@workspace:.":
+"password-checklist-input@workspace:.":
   version: 0.0.0-use.local
-  resolution: "mui-password-checklist@workspace:."
+  resolution: "password-checklist-input@workspace:."
   dependencies:
     "@types/jest": "npm:^29.5.12"
     "@types/react": "npm:^18.2.43"

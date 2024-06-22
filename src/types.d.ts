@@ -33,6 +33,10 @@ export type ValidationMessages = {
 
 export type PasswordChecklistProps = {
   /**
+   * container class name for the input field
+   */
+  containerClassName?: string;
+  /**
    * class name for the input field
    */
   className?: string;

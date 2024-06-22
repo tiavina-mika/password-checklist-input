@@ -1,7 +1,7 @@
 {
-  "name": "mui-password-checklist",
-  "version": "0.5.4",
-  "description": "A Material-UI password input with password strength checklist",
+  "name": "password-checklist-input",
+  "version": "0.0.0",
+  "description": "A React password input with list of password validation steps or conditions that should be fulfilled",
   "keywords": [
     "mui",
     "password",
@@ -13,9 +13,9 @@
     "mui-password",
     "react"
   ],
-  "homepage": "https://github.com/tiavina-mika/mui-password-checklist",
+  "homepage": "https://github.com/tiavina-mika/password-checklist-input",
   "bugs": {
-    "url": "https://github.com/tiavina-mika/mui-password-checklist/issues"
+    "url": "https://github.com/tiavina-mika/password-checklist-input/issues"
   },
   "author": {
     "name": "Tiavina Michael Ralainirina",

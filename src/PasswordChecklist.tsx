@@ -7,12 +7,15 @@ import Close from './icons/Close';
 import { validatePasswordChecklist, PasswordCheckListResult } from 'validate-password-checklist';
 import { PasswordChecklistProps } from './types';
 
+import './index.css';
+
 const PasswordChecklist =  forwardRef<HTMLInputElement, PasswordChecklistProps & InputHTMLAttributes<HTMLInputElement>>(({
   options,
   className,
   hidePasswordIcon,
   showPasswordIcon,
   validationMessages,
+  containerClassName,
   ...rest
 }, ref) => {
   const [rules, setRules] = useState<PasswordCheckListResult['validationMessages']>([]);
@@ -31,7 +34,7 @@ const PasswordChecklist =  forwardRef<HTMLInputElement, PasswordChecklistProps &
   };
 
   return (
-    <>
+    <div className={containerClassName}>
       {/* ------------------------------------------- */}
       {/* ---------------- text field --------------- */}
       {/* ------------------------------------------- */}
@@ -55,35 +58,30 @@ const PasswordChecklist =  forwardRef<HTMLInputElement, PasswordChecklistProps &
       {/* ------ password requirement checklist ----- */}
       {/* ------------------------------------------- */}
       {rules.length > 0 && (
-        <ul>
-          {rules.map((error, index) => (
+        <ul className="rules">
+          {rules.map((rule, index) => (
               <li key={index}>
-              {/* <li key={index} sx={{ padding: 0 }}> */}
-                <span>
-                {/* <span sx={{ minWidth: 24, '& svg': { width: 18 } }}> */}
+                <div className="rule-icon-container">
                   {/* ------ left icon ------ */}
-                  {error.passed
-                    // ? <Check fill={theme.palette.success.main} />
-                    // : <Close fill={theme.palette.error.main} />
-                    ? <Check fill="red" />
-                    : <Close fill="green" />
+                  {rule.passed
+                    ? <Check fill="green" />
+                    : <Close fill="red" />
                   }
-                </span>
-                {/* ------ error message ------ */}
+                </div>
+                {/* ------ rule message ------ */}
                 <span
-                  // sx={{ color: (theme: Theme) => error.passed
-                  //   ? theme.palette.success.main
-                  //   : theme.palette.error.main
-                  // }}
+                  style={{
+                    color: rule.passed ? 'green' : 'red',
+                  }}
                 >
-                  {error.message}
+                  {rule.message}
                 </span>
               </li>
             )
           )}
         </ul>
       )}
-    </>
+    </div>
   );
 });
 

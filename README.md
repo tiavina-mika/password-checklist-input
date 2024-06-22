@@ -1,46 +1,35 @@
-# mui-password-checklist
+# password-checklist-input
 
 <p align="left">
-A <a href="https://mui.com/material-ui/getting-started/overview/">Material-UI</a> password input with list of password validation steps or conditions that should be fulfilled.
+A React password input with list of password validation steps or conditions that should be fulfilled.
 </p>
 
 ## Demo
 
-- **[CodeSandbox demo](https://codesandbox.io/s/github/tiavina-mika/mui-password-checklist-demo)**
-- **[Live demo](https://mui-password-checklist.netlify.app/)**
+- **[CodeSandbox demo](https://codesandbox.io/s/github/tiavina-mika/password-checklist-input-demo)**
+- **[Live demo](https://password-checklist-input.netlify.app/)**
 
 <br />
 
-![Gif](https://github.com/tiavina-mika/mui-password-checklist/blob/main/screenshots/example.gif)
+![Gif](https://github.com/tiavina-mika/password-checklist-input/blob/main/screenshots/example.gif)
 
 ## Installation
 
 ```shell
 
-npm install mui-password-checklist
+npm install password-checklist-input
 
 ```
 or
 ```shell
 
-yarn add mui-password-checklist
-
-```
-Please note that [`@mui/material`](https://mui.com/material-ui/getting-started/installation/) (and their `@emotion/` peers) are peer dependencies, meaning you should ensure they are installed before installing `mui-password-checklist`.
-
-```shell
-npm install @mui/material @emotion/react @emotion/styled
-```
-or
-```shell
-yarn add @mui/material @emotion/react @emotion/styled
-```
+yarn add password-checklist-input
 
 ## Get started
 
 ### Simple usage
 ```tsx
-import PasswordChecklist from 'mui-password-checklist';
+import PasswordChecklist from 'password-checklist-input';
 import { useState, ChangeEvent } from "react";
 
 function App() {
@@ -74,8 +63,6 @@ function App() {
         minLength: 6,
         allowedSpecialChar: "="
       }}
-      // override TextFieldProps
-      fullWidth
     />
 ```
 
@@ -89,16 +76,16 @@ function App() {
 ```
 
 
-### Material-UI TextField props
+### HTML input props
 
 ```tsx
   <PasswordChecklist
     placeholder="Enter your password"
-    // ...other mui TextField props
+    // ...other input props
   />
 ```
 
-See [`here`](https://github.com/tiavina-mika/mui-password-checklist/tree/main/example) for more examples that use `PasswordChecklist`.
+See [`here`](https://github.com/tiavina-mika/password-checklist-input/tree/main/example) for more examples that use `PasswordChecklist`.
 
 ## Props
 
@@ -106,10 +93,10 @@ See [`here`](https://github.com/tiavina-mika/mui-password-checklist/tree/main/ex
 |----------------|-------------------------------|-----------------------------|-----------------------------|
 |options|`CheckPasswordOptions`|null|Override colors and labels of each strength
 |validationMessages|`ValidationMessages`|null| Override each password validation massages
-|className|`string`|empty|TextField class name
+|containerClassName|`string`|empty|Container class name
+|className|`string`|empty|Input class name
 |hidePasswordIcon|`ReactNode`|null|Custom icon for showing the password
 |hidePasswordIcon|`ReactNode`|null|Custom icon for hiding the password
-|...otherProps|`TextFieldProps`|null|All Material UI `TextField` props
 
 ## Types
 
@@ -134,4 +121,4 @@ See [`here`](https://github.com/tiavina-mika/mui-password-checklist/tree/main/ex
 
 ## Contributing
 
-Get started [here](https://github.com/tiavina-mika/mui-password-checklist/blob/main/CONTRIBUTING.md).
+Get started [here](https://github.com/tiavina-mika/password-checklist-input/blob/main/CONTRIBUTING.md).

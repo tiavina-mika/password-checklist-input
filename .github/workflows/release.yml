@@ -19,7 +19,7 @@ permissions:
   pull-requests: write
 
 env:
-  APP_NAME: mui-password-checklist
+  APP_NAME: password-checklist-input
 
 jobs:
   # lint:
