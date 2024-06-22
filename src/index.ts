@@ -1,7 +1,7 @@
 import PasswordChecklist from './PasswordChecklist';
 
 export {
-  type PasswordChecklistProps as PasswordStrengthInputProps
+  type PasswordChecklistProps
 } from './types.d';
 
 export default PasswordChecklist;
