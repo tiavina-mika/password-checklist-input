@@ -84,6 +84,76 @@ function App() {
   />
 ```
 
+### Using it with Zod and React Hook Form
+Use the `validatePasswordChecklist` function to check if all rules are respected.
+
+```tsx
+import { zodResolver } from '@hookform/resolvers/zod';
+import { SubmitHandler, useForm, FormProvider, Controller } from 'react-hook-form';
+import z from 'zod';
+import PasswordChecklist, { validatePasswordChecklist } from 'password-checklist-input';
+
+const schema = z.object({
+  password: z.string()
+  .max(64, "Should not exceed 64 characters")
+  .superRefine((value: string, ctx: any) => {
+    const { allChecksPassed } = validatePasswordChecklist(value);
+    // no need to trigger the error if the password rules are met
+    if (allChecksPassed) return;
+    ctx.addIssue({
+      code: "custom",
+      // maybe this message should not be displayed to the user
+      message: "Should contain at least 8 characters, one lowercase, one uppercase, one number, and one special character",
+    });
+  })
+});
+
+type FormValues = z.infer<typeof schema>;
+
+const SignUpForm = () => {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(schema),
+  });
+
+  const { handleSubmit, control, formState  } = form;
+
+  const handleFormSubmit: SubmitHandler<FormValues> = async values => {
+    console.log('values: ', values);
+  };
+
+  return (
+    <FormProvider {...form}>
+      <form onSubmit={handleSubmit(handleFormSubmit)}>
+        <div className="flex flex-col gap-4">
+          {/* password input */}
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <PasswordChecklist
+                {...field}
+                placeholder="Enter your password"
+                className={Boolean(formState?.errors?.password) ? 'border-red-500' : ''}
+              />
+            )}
+          />
+          {/* button */}
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </FormProvider>
+  );
+};
+
+export default SignUpForm;
+```
+
 See [`here`](https://github.com/tiavina-mika/password-checklist-input/tree/main/example) for more examples that use `PasswordChecklist`.
 
 ## Props
