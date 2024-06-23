@@ -109,7 +109,7 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-const SignUpForm = () => {
+export default function SignUpForm() {
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
   });
@@ -135,8 +135,6 @@ const SignUpForm = () => {
     </FormProvider>
   );
 };
-
-export default SignUpForm;
 ```
 
 See [`here`](https://github.com/tiavina-mika/password-checklist-input/tree/main/example) for more examples that use `PasswordChecklist`.
