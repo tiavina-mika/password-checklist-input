@@ -1,6 +1,6 @@
 {
   "name": "password-checklist-input",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A React password input with list of password validation steps or conditions that should be fulfilled",
   "keywords": [
     "password",
