@@ -98,7 +98,6 @@ const schema = z.object({
   .max(64, "Should not exceed 64 characters")
   .superRefine((value: string, ctx: any) => {
     const { allChecksPassed } = validatePasswordChecklist(value);
-    // no need to trigger the error if the password rules are met
     if (allChecksPassed) return;
     ctx.addIssue({
       code: "custom",
@@ -115,37 +114,23 @@ const SignUpForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const { handleSubmit, control, formState  } = form;
-
-  const handleFormSubmit: SubmitHandler<FormValues> = async values => {
-    console.log('values: ', values);
-  };
+  const handleFormSubmit: SubmitHandler<FormValues> = async values => console.log('values: ', values);
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <div className="flex flex-col gap-4">
-          {/* password input */}
-          <Controller
-            name="password"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <PasswordChecklist
-                {...field}
-                placeholder="Enter your password"
-                className={Boolean(formState?.errors?.password) ? 'border-red-500' : ''}
-              />
-            )}
-          />
-          {/* button */}
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg"
-          >
-            Submit
-          </button>
-        </div>
+      <form onSubmit={form.handleSubmit(handleFormSubmit)}>
+        <Controller
+          name="password"
+          control={form.control}
+          defaultValue=""
+          render={({ field }) => (
+            <PasswordChecklist
+              {...field}
+              className={Boolean(form.formState?.errors?.password) ? 'border-red-500' : ''}
+            />
+          )}
+        />
+        <button type="submit">Submit</button>
       </form>
     </FormProvider>
   );
