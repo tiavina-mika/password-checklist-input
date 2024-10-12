@@ -27,10 +27,10 @@ const App = () => {
       <div className="flex justify-center items-center gap-8">
         {tabs.map((label, index) => (
           <button
-            type="button"
             key={index}
-            onClick={handleChange(index)}
             className={clsx(index === tab ? ' border-blue-400' : 'border-transparent', 'text-lg font-semibold text-gray-900 border-b-2 py-2 px-4 hover:opacity-75 focus:outline-none transition-colors duration-300 ease-in-out')}
+            type="button"
+            onClick={handleChange(index)}
           >
             {label}
           </button>
@@ -45,11 +45,13 @@ const App = () => {
         </div>
         {tab === 0 && (
           <PasswordChecklist
-            value={password}
-            onChange={handlePasswordChange}
-            // override class name
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            // override error messages
+            placeholder="Enter your password"
+            value={password}
+            options={{
+              minLength: 6,
+              allowedSpecialChar: '=',
+            }}
             validationMessages={{
               minLength: 'Devrait contenir au moins 6 caractères',
               lowerCase: 'Devrait contenir au moins une lettre minuscule',
@@ -57,22 +59,16 @@ const App = () => {
               number: 'Devrait contenir au moins un chiffre',
               specialCharacters: 'Devrait contenir au moins un caractère spécial',
             }}
-            // override options
-            options={{
-              minLength: 6,
-              allowedSpecialChar: "="
-            }}
-            // override TextFieldProps
-            placeholder="Enter your password"
+            onChange={handlePasswordChange}
           />
         )}
 
-        {tab === 1  && (
+        {tab === 1 && (
           <WithHookForm />
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
