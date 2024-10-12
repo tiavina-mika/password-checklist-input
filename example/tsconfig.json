@@ -26,6 +26,6 @@
       "assets*": ["public/*"],
     },
   },
-  "include": ["src"],
+  "include": ["src", "tailwind.config.cjs", ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
