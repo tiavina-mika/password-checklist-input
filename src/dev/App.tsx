@@ -10,7 +10,11 @@ const App = () => {
         </div>
         <form>
           <PasswordChecklist
-            className='input'
+            className="input"
+            options={{
+              minLength: 6,
+              allowedSpecialChar: '=',
+            }}
             validationMessages={{
               minLength: 'Devrait contenir au moins 8 caractères',
               lowerCase: 'Devrait contenir au moins une lettre minuscule',
@@ -18,15 +22,11 @@ const App = () => {
               number: 'Devrait contenir au moins un chiffre',
               specialCharacters: 'Devrait contenir au moins un caractère spécial',
             }}
-            options={{
-              minLength: 6,
-              allowedSpecialChar: "="
-            }}
           />
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

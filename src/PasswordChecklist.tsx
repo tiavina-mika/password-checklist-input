@@ -1,4 +1,6 @@
-import { ChangeEvent, InputHTMLAttributes, forwardRef, useState } from 'react';
+import {
+  ChangeEvent, InputHTMLAttributes, forwardRef, useState,
+} from 'react';
 
 import VisibilityOff from './icons/VisibilityOff';
 import Visibility from './icons/Visibility';
@@ -9,7 +11,9 @@ import { PasswordChecklistProps } from './types';
 
 import './index.css';
 
-const PasswordChecklist =  forwardRef<HTMLInputElement, PasswordChecklistProps & InputHTMLAttributes<HTMLInputElement>>(({
+const PasswordChecklist = forwardRef<
+  HTMLInputElement, PasswordChecklistProps & InputHTMLAttributes<HTMLInputElement
+  >>(({
   options,
   className,
   hidePasswordIcon,
@@ -19,15 +23,16 @@ const PasswordChecklist =  forwardRef<HTMLInputElement, PasswordChecklistProps &
   ...rest
 }, ref) => {
   const [rules, setRules] = useState<PasswordCheckListResult['validationMessages']>([]);
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
-  const toggleShowPassword = () => setShowPassword(!showPassword);
+  const toggleShowPassword = () => setIsPasswordVisible(!isPasswordVisible);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
     const result = validatePasswordChecklist(value, validationMessages, options);
     const newErrors = result.validationMessages || [];
+
     setRules(newErrors);
 
     rest.onChange?.(event);
@@ -43,14 +48,13 @@ const PasswordChecklist =  forwardRef<HTMLInputElement, PasswordChecklistProps &
           ref={ref}
           {...rest}
           className={className}
-          type={showPassword ? 'text' : 'password'}
+          type={isPasswordVisible ? 'text' : 'password'}
           onChange={handleChange}
         />
-        <button type="button" onClick={toggleShowPassword} className="visibility-icon-button">
-          {showPassword
+        <button className="visibility-icon-button" type="button" onClick={toggleShowPassword}>
+          {isPasswordVisible
             ? (hidePasswordIcon || <VisibilityOff />)
-            : (showPasswordIcon || <Visibility />)
-          }
+            : (showPasswordIcon || <Visibility />)}
         </button>
       </div>
 
@@ -60,24 +64,23 @@ const PasswordChecklist =  forwardRef<HTMLInputElement, PasswordChecklistProps &
       {rules.length > 0 && (
         <ul className="rules">
           {rules.map((rule, index) => (
-              <li key={index}>
-                <div className="rule-icon-container">
-                  {/* ------ left icon ------ */}
-                  {rule.passed
-                    ? <Check fill="green" />
-                    : <Close fill="red" />
-                  }
-                </div>
-                {/* ------ rule message ------ */}
-                <span
-                  style={{
-                    color: rule.passed ? 'green' : 'red',
-                  }}
-                >
-                  {rule.message}
-                </span>
-              </li>
-            )
+            <li key={index}>
+              <div className="rule-icon-container">
+                {/* ------ left icon ------ */}
+                {rule.passed
+                  ? <Check fill="green" />
+                  : <Close fill="red" />}
+              </div>
+              {/* ------ rule message ------ */}
+              <span
+                style={{
+                  color: rule.passed ? 'green' : 'red',
+                }}
+              >
+                {rule.message}
+              </span>
+            </li>
+          )
           )}
         </ul>
       )}

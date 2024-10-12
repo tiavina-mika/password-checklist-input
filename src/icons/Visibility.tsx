@@ -5,6 +5,6 @@ const Visibility = () => {
       </path>
     </svg>
   );
-}
+};
 
 export default Visibility;
